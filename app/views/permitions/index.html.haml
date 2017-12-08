@@ -1,7 +1,7 @@
 %h1= t("headers.#{params['controller']}.#{params['action']}")
 .card.border-light.mb-3
   .card-header
-    = link_to t('button.new.user'), new_user_path, class:"btn btn-success"
+    = link_to 'New Permition', new_permition_path, class:"btn btn-success"
 %table.table.table-hover.table-striped
   %thead.thead-dark
     %tr
@@ -17,7 +17,3 @@
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{permition.id}"]}}= permition.information_system.name
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{permition.id}"]}}= permition.parameter
         %td= link_to t('button.destroy'), permition, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
-
-%br
-
-= link_to 'New Permition', new_permition_path

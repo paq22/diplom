@@ -18,5 +18,47 @@
   .field
     = f.label :description
     = f.text_field :description
+  
+  = hidden_field_tag(:form_id, :role_group_rights)
+  .row
+    .col-md-12
+      = link_to_add_role_group_right(f, f.object)
+      = link_to_add_permition_role(f, f.object)
+      
+  = f.fields_for :role_group_rights do |fn|
+    .col-md-6
+      .panel.panel-info
+        .panel-heading
+          %span.toright
+            = link_to_remove_role_group_right(fn)
+            .clearfix
+        .panel-body
+          .field
+            = fn.label :group_right
+            = fn.select :group_right_id,
+            options_for_select(GroupRight.all.map{|t| ["#{t.group_name} ", t.id]}, fn.object.role_group_right_id),
+            {include_blank: true}
+          .field
+            = fn.label :parameter
+            = fn.text_field :parameter
+          
+
+      
+  = f.fields_for :permition_roles do |fn|
+    .col-md-6
+      .panel.panel-info
+        .panel-heading
+          %span.toright
+            = link_to_remove_permition_role(fn)
+            .clearfix
+        .panel-body
+          .field
+            = fn.label :permition
+            = fn.select :permition_id,
+            options_for_select(Permition.all.map{|t| ["#{t.act} ", t.id]}, fn.object.permition_id),
+            {include_blank: true}
+          .field
+            = fn.label :parameter
+            = fn.text_field :parameter
   .actions
     = f.submit t('button.save')

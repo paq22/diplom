@@ -7,16 +7,14 @@ module PermitionsHelper
     end
     link_to(?#, class: 'btn mbottom20 btn-info', 
         id: 'add_permition_link', data: {content: "#{fields}"}) do 
-      #fa_icon("plus") + " Новый комментарий"
-      " Новое право на конткретное действие" 
+      " Новые права на конкретные действия" 
     end
   end
   
   def link_to_remove_permition(form)  
     form.hidden_field(:_destroy, class: 'remove_fields') + 
         link_to(?#, class: 'remove_fields remove_permition') do 
-      ' Удалить'
-      #fa_icon('times', title: 'Удалить комментарий') + ' Удалить'      
+      ' Удалить'      
     end
   end
 end

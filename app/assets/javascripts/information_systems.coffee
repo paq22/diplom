@@ -31,3 +31,4 @@ information_system_ready = ->
 #$(document).ready information_system_ready
 $(document).on 'page:load', information_system_ready
 $(document).on 'turbolinks:load', information_system_ready
+

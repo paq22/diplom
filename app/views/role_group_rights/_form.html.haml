@@ -8,10 +8,14 @@
 
   .field
     = f.label :role
-    = f.text_field :role
+    = f.select :role_id,
+    options_for_select(Role.all.map{|t| ["#{t.name} ", t.id]}, f.object.role_id),
+    {include_blank: true}
   .field
     = f.label :group_right
-    = f.text_field :group_right
+    = f.select :group_right_id,
+    options_for_select(GroupRight.all.map{|t| ["#{t.group_name} ", t.id]}, f.object.group_right_id),
+    {include_blank: true}
   .field
     = f.label :parameter
     = f.text_field :parameter

@@ -19,7 +19,6 @@
     content = content.replace(regexp, new_id)
     $(this).parent().parent().after(content)
     panel = $(this).parent().parent().parent().find('.panel-info').first()
-    console.log(panel)
     panel.find('a.remove_right_group_permition').on 'click', ->
       window.del_right_group_permition_body_f($(this))
       false    

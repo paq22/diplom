@@ -11,7 +11,9 @@
     = f.text_field :act
   .field
     = f.label :information_system
-    = f.text_field :information_system_id
+    = f.select :information_system_id,
+    options_for_select(InformationSystem.all.map{|t| ["#{t.name} " , t.id]}, f.object.information_system_id),
+    {include_blank: true} 
   .field
     = f.label :parameter
     = f.text_field :parameter

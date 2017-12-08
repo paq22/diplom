@@ -5,27 +5,30 @@
       %ul
         - @user.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :ln
-    = f.text_field :ln
-  .field
-    = f.label :fn
-    = f.text_field :fn
-  .field
-    = f.label :sn
-    = f.text_field :sn
-  .field
-    = f.label :bday
-    = f.date_select :bday
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :login
-    = f.text_field :login
-  .field
-    = f.label :sex
-    = f.text_field :sex
+  %table
+    %thead
+      %tr
+        %td= f.label :ln
+        %td= f.text_field :ln, class:"form-control is-invalid"
+      %tr
+        %td
+      %tr
+        %td= f.label :fn
+        %td= f.text_field :fn, class:"form-control is-invalid"
+      %tr
+        %td= f.label :sn
+        %td= f.text_field :sn, class:"form-control"
+      %tr
+        %td= f.label :bday
+        %td= f.date_select :bday, class:"form-control is-invalid"
+      %tr
+        %td= f.label :email
+        %td= f.text_field :email, class:"form-control is-invalid"
+      %tr
+        %td= f.label :login
+        %td= f.text_field :login, class:"form-control is-invalid"
+      %tr
+        %td= f.label :sex
+        %td= f.select :sex, ['м', 'ж']
   .actions
     = f.submit t('button.save')

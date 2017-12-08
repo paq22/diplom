@@ -1,0 +1,17 @@
+.col-md-6
+  .panel.panel-info
+    .panel-heading
+      .small
+        Добавить группу прав
+        %span.toright
+          = link_to_remove_role_group_right(fn)
+        .clearfix
+    .panel-body
+      .field
+        = fn.label :group_right
+        = fn.select :group_right_id,
+        options_for_select(GroupRight.all.map{|t| ["#{t.group_name} ", t.id]}, fn.object.group_right_id),
+        {include_blank: true}
+      .field
+        = fn.label :parameter
+        = fn.text_field :parameter
