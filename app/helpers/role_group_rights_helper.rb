@@ -1,0 +1,2 @@
+module RoleGroupRightsHelper
+end

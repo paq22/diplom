@@ -1,0 +1,43 @@
+= form_for @group_right do |f|
+  - if @group_right.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@group_right.errors.count, "error")} prohibited this group_right from being saved:"
+      %ul
+        - @group_right.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :information_system
+    = f.select :information_system_id,
+    options_for_select(InformationSystem.all.map{|t| ["#{t.name} " , t.id]}, f.object.information_system_id),
+    {include_blank: true}
+  .field
+    = f.label :group_name
+    = f.text_field :group_name
+  .field
+    = f.label :parameter
+    = f.text_field :parameter
+  
+  = hidden_field_tag(:form_id, :right_group_permitions)
+  .row
+    .col-md-12
+      = link_to_add_right_group_permition(f, f.object)      
+  = f.fields_for :right_group_permitions do |fn|
+    .col-md-6
+      .panel.panel-info
+        .panel-heading
+          %span.toright
+            = link_to_remove_right_group_permition(fn)
+            .clearfix
+        .panel-body
+          .field
+            = fn.label :permition
+            = fn.select :permition_id,
+            options_for_select(Permition.all.map{|t| ["#{t.act} ", t.id]}, fn.object.permition_id),
+            {include_blank: true}
+          .field
+            = fn.label :parameter
+            = fn.text_field :parameter
+
+  .actions
+    = f.submit 'Save'

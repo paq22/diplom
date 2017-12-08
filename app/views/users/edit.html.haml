@@ -1,0 +1,7 @@
+%h1= t("headers.#{params['controller']}.#{params['action']}")
+
+= render 'form'
+
+= link_to t('button.show'), @user
+\|
+= link_to t('button.back'), users_path

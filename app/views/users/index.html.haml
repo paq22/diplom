@@ -1,0 +1,30 @@
+%h1= t("headers.#{params['controller']}.#{params['action']}")
+.card.border-light.mb-3
+  .card-header
+    = link_to t('button.new.user'), new_user_path, class:"btn btn-success"
+%table.table.table-hover.table-striped
+  %thead.thead-dark
+    %tr
+      %th= t('activerecord.attributes.user.ln')
+      %th= t('activerecord.attributes.user.fn')
+      %th= t('activerecord.attributes.user.sn')
+      %th= t('activerecord.attributes.user.bday')
+      %th= t('activerecord.attributes.user.email')
+      %th= t('activerecord.attributes.user.login')
+      %th= t('activerecord.attributes.user.sex')
+      %th
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.ln
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.fn
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.sn
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= rus_date(user.bday)
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.email
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.login
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.sex
+        %td= link_to t('button.destroy'), user, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
+        %td= link_to t("Редактирование роли"), role_users_path(id: user), class:"btn btn-primary"
+

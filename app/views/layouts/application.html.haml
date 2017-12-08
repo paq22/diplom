@@ -1,0 +1,76 @@
+!!!
+%html{lang: 'ru'}
+  %head
+    %title Заголовок
+    %meta{charset: 'utf-8'}
+    %meta{name: 'viewport', content: "width=device-width, initial-scale=1.0, , shrink-to-fit=no"}
+    %meta{'http-equiv'=>"X-UA-Compatible", 'content'=>"IE=edge"}
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  
+  %body
+    %nav.topbar
+      %ul
+        %li
+          %a На главную
+        %li
+          %a.active Текущий объект
+        %li
+          %a Обычный объект
+        %li
+          .topbar-dropdown
+            %a.topbar-dropdown-head{"data-target" => "#topbar-dropdown-1"}
+              Выпадающий список
+            #topbar-dropdown-1.topbar-dropdown-content.hidden
+              %a
+                Обычный объект
+              %a.active
+                Текущий объект
+              %a
+                Обычный объект
+        %li.right
+          = link_to "Авторизация",admin_session_path, class:"a"
+        %li.right.active
+          %a Текущий объект справа
+        %li.btn
+          %a
+            %span V
+    %nav.sidebar
+      = link_to "На главную", welcome_index_path, class:"active"
+      = link_to "(1) Пользователи", users_path
+      = link_to "(2) Роли", roles_path
+      = link_to "(3) Информационная система", information_systems_path
+      = link_to "(4) Информационная система - Доступ к словарю", dictionary_accesses_path
+      = link_to "(6) Роль - Пользователь", role_users_path
+      = link_to "(7) Группы прав", group_rights_path
+      = link_to "(8) Права на конкретные действия", permitions_path
+      = link_to "(9) Роль - Группа прав", role_group_rights_path
+      = link_to "(10) Права групп прав", right_group_permitions_path
+      = link_to "(11) Право - Роль", permition_roles_path
+      .sidebar-dropdown
+        %a.sidebar-dropdown-head{"data-target" => "#sidebar-dropdown-1"}
+          Выпадающий список
+        #sidebar-dropdown-1.sidebar-dropdown-content.hidden
+          %a Объект 1
+          %a Объект 2
+          %a Объект 3
+          .sidebar-dropdown
+            %a.sidebar-dropdown-head.active{"data-target" => "#sidebar-dropdown-2"}
+              Активный выпадающий список
+            #sidebar-dropdown-2.sidebar-dropdown-content.hidden
+              %a Объект 1
+              %a Объект 2
+              %a Объект 3
+      %a Обычный объект
+      .sidebar-dropdown.active
+        %a.sidebar-dropdown-head{"data-target" => "#sidebar-dropdown-3"}
+          Это боковое меню требует подключения следующих файлов:
+        #sidebar-dropdown-3.sidebar-dropdown-content.hidden
+          %a css/sidebar.css
+          %a js/sidebar.js
+
+    .content
+      %p=yield
+
+

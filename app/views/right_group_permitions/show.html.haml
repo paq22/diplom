@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Permition:
+  = @right_group_permition.permition
+%p
+  %b Group right:
+  = @right_group_permition.group_right
+%p
+  %b Parameter:
+  = @right_group_permition.parameter
+
+= link_to 'Edit', edit_right_group_permition_path(@right_group_permition)
+\|
+= link_to 'Back', right_group_permitions_path

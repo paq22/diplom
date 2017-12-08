@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Information system:
+  = @dictionary_access.information_system
+%p
+  %b Name:
+  = @dictionary_access.name
+%p
+  %b Access key:
+  = @dictionary_access.access_key
+
+= link_to 'Edit', edit_dictionary_access_path(@dictionary_access)
+\|
+= link_to 'Back', dictionary_accesses_path

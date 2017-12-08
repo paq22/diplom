@@ -1,0 +1,39 @@
+= form_for @information_system do |f|
+  - if @information_system.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@information_system.errors.count, "error")} prohibited this information_system from being saved:"
+      %ul
+        - @information_system.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :link
+    = f.text_field :link
+  .field
+    = f.label :access_key
+    = f.text_field :access_key
+
+  = hidden_field_tag(:form_id, :permitions)
+  .row
+    .col-md-12
+      = link_to_add_permition(f, f.object)      
+  = f.fields_for :permitions do |fn|
+    .col-md-6
+      .panel.panel-info
+        .panel-heading
+          %span.toright
+            = link_to_remove_permition(fn)
+            .clearfix
+        .panel-body
+          .field
+            = fn.label :act
+            = fn.text_field :act
+          .field
+            = fn.label :parameter
+            = fn.text_field :parameter
+  .actions
+    = f.submit t('button.save')
+

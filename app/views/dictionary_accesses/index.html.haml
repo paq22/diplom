@@ -1,0 +1,25 @@
+%h1 Listing dictionary_accesses
+
+%table.table.table-striped.table-hover
+  %thead.thead-inverse
+    %tr
+      %th Information system
+      %th Name
+      %th Access key
+      %th
+      %th
+      %th
+
+  %tbody
+    - @dictionary_accesses.each do |dictionary_access|
+      %tr
+        %td= dictionary_access.information_system.name
+        %td= dictionary_access.name
+        %td= dictionary_access.access_key
+        %td= link_to 'Show', dictionary_access
+        %td= link_to 'Edit', edit_dictionary_access_path(dictionary_access)
+        %td= link_to 'Destroy', dictionary_access, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Dictionary access', new_dictionary_access_path

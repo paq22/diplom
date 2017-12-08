@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Act:
+  = @permition.act
+%p
+  %b Information system:
+  = @permition.information_system
+%p
+  %b Parameter:
+  = @permition.parameter
+
+= link_to 'Edit', edit_permition_path(@permition)
+\|
+= link_to 'Back', permitions_path

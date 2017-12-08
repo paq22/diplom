@@ -1,0 +1,21 @@
+%h1= t("headers.#{params['controller']}.#{params['action']}")
+.card.border-light.mb-3
+  .card-header
+    = link_to 'New Role user', new_role_user_path, class:"btn btn-success"
+%table.table.table-hover.table-striped
+  %thead.thead-dark
+    %tr
+      %th User
+      %th Role
+      %th Information system
+      %th Parameter
+      %th
+
+  %tbody
+    - @role_users.each do |role_user|
+      %tr
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role_user.id}"]}}= role_user.user.ln
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role_user.id}"]}}= role_user.role.name
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role_user.id}"]}}= role_user.information_system.name
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role_user.id}"]}}= role_user.parameter
+        %td= link_to t('button.destroy'), role_user, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"

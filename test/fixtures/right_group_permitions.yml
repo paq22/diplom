@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  permition: one
+  group_right: one
+  parameter: MyString
+
+two:
+  permition: two
+  group_right: two
+  parameter: MyString

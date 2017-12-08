@@ -1,0 +1,19 @@
+= form_for @dictionary_access do |f|
+  - if @dictionary_access.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dictionary_access.errors.count, "error")} prohibited this dictionary_access from being saved:"
+      %ul
+        - @dictionary_access.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :information_system_id
+    = f.text_field :information_system_id
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :access_key
+    = f.text_field :access_key
+  .actions
+    = f.submit 'Save'

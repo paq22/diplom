@@ -1,0 +1,2 @@
+module GroupRightsHelper
+end

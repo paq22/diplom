@@ -1,0 +1,27 @@
+
+
+%p
+  %b= t('activerecord.attributes.user.ln') + ":"
+  = @user.ln
+%p
+  %b= t('activerecord.attributes.user.fn') + ':'
+  = @user.fn
+%p
+  %b= t('activerecord.attributes.user.sn') + ':'
+  = @user.sn
+%p
+  %b= t('activerecord.attributes.user.bday') + ':'
+  = @user.bday
+%p
+  %b= t('activerecord.attributes.user.email') + ':'
+  = @user.email
+%p
+  %b= t('activerecord.attributes.user.login') + ':'
+  = @user.login
+%p
+  %b= t('activerecord.attributes.user.sex') + ':'
+  = @user.sex
+
+= link_to t('button.edit'), edit_user_path(@user)
+\|
+= link_to t('button.back'), users_path

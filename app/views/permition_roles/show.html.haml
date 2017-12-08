@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Role:
+  = @permition_role.role
+%p
+  %b Permition:
+  = @permition_role.permition
+%p
+  %b Parameter:
+  = @permition_role.parameter
+
+= link_to 'Edit', edit_permition_role_path(@permition_role)
+\|
+= link_to 'Back', permition_roles_path

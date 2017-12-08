@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  role: one
+  permition: one
+  parameter: MyString
+
+two:
+  role: two
+  permition: two
+  parameter: MyString

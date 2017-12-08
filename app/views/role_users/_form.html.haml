@@ -1,0 +1,29 @@
+= form_for @role_user do |f|
+  - if @role_user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@role_user.errors.count, "error")} prohibited this role_user from being saved:"
+      %ul
+        - @role_user.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :user
+    = f.select :user_id,
+    options_for_select(User.all.map{|t| ["#{t.ln} " + " #{t.fn}" + " #{t.sn}" + " #{t.login}" , t.id]}, f.object.user_id),
+    {include_blank: true}
+  .field
+    = f.label :role
+    = f.select :role_id,
+    options_for_select(Role.all.map{|t| ["#{t.notation} " + " #{t.name}", t.id]}, f.object.role_id),
+    {include_blank: true}
+  .field
+    = f.label :information_system
+    = f.select :information_system_id,
+    options_for_select(InformationSystem.all.map{|t| ["#{t.name}", t.id]}, f.object.information_system_id),
+    {include_blank: true}
+  .field
+    = f.label :parameter
+    = f.text_field :parameter
+  .actions
+    = f.submit 'Save'
+

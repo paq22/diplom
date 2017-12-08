@@ -1,0 +1,153 @@
+ru:
+  hello: "Добро пожаловать"
+  devise: 
+    registrations:
+      admin:
+        signed_up: Администратор зарегистрировался в системе
+    sessions:
+      admin:
+        signed_out: Администратор вышел из себя
+  helpers:
+#    submit:
+#      create: Сохранить
+#      submit: Сохранить
+#      update: Сохранить
+    sure: Действительно удалить?
+#    back: Назад 
+#    edit: Редактировать 
+#    show: Показать
+  button:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    save: Сохранить
+    back: Назад
+#    confirm:
+#      user: Действительно удалить пользователя?
+#      role: Действительно удалить роль?
+#      client: Действительно удалить клиента?
+#      list: Действительно удалить список?
+#      order: Действительно удалить заказ?
+#      product: Действительно удалить товар?
+    new: 
+      user: Новый пользователь
+      role: Новая роль
+      information_system: Новая информационная система
+      dictionary_access: Информационная система - Доступ к словарю
+#      client: Новый клиент
+#      list: Новый список
+#      order: Новый заказ
+#      product: Новый товар
+  headers:
+    users:
+      index: Список пользователей
+      edit: Редактирование пользователя
+      new: Создание пользователя
+      show: Информация о выбранном пользователе
+    roles:
+      index: Список ролей
+      edit: Редактирование роли
+      new: Создание роли
+      show: Информация о роли
+    information_systems:
+      index: Список информационной системы
+      edit: Редактирование информационной системы
+      new: Создание информационной системы
+      show: Информация о информационной системе
+    dictionary_accesses:
+      index: Список "Информационная система - Доступ к словарю"
+      edit: Редактирование "Информационная система - Доступ к словарю"
+      new: Создание "Информационная система - Доступ к словарю"
+      show: Информация "Информационная система - Доступ к словарю" 
+    #  new: Создание заказа
+    #  show: Информация о выбранном заказе
+    #lists:
+    #  index: Списки 
+    #  new-button: Новый список
+    #  edit: Редактирование списка
+    #  new: Создание списка
+    #  show: Информация о выбранном списке
+      #~ 111
+    #roles:
+    #  index: Список возможных ролей пользователей
+    #  new-button: Новая роль
+    #  edit: Редактирование роли
+    #  new: Создание роли
+  #views:
+  #  pagination:
+  #    first: ⇤
+  #    last: ⇥
+  #    previous: ←
+  #    next: →
+  #    truncate: …
+  activerecord:
+    models:
+      user: Пользователь
+      role: Роль
+      information_system: Информационная система
+      #order: Заказы
+      #product: Товары
+    attributes:
+      user:
+        ln: Фамилия
+        fn: Имя
+        sn: Отчество
+        bday: Дата рождения
+        email: Электронная почта
+        login: Логин
+        sex: Пол
+      role: 
+        notation: Обозначение
+        name: Название
+        short_name: Краткое название
+        description: Описание
+      information_system:
+        name: Название
+        link: Базовый адрес
+        access_key: Ключ доступа
+      dictionary_access:
+        information_system_id: Информационная система
+        name: Название словарей
+        access_key: Ключ доступа
+      #role_user: &role_users
+      ## nested_finish
+      #  role: Роль
+      #  role_id: Роль
+      #  data: Параметры
+      ## nested_start
+      #user/role_users:
+      #  <<: *role_users
+      ## nested_finish 
+      ##~ 111
+      #product:
+      #  title: Название
+      #  short_description: Краткое описание
+      #  full_description: Полное описание
+      #  list_id_images: Список идентификаторов изображений
+      #  base_price: Базовая цена
+      #  current_price: Текущая цена
+      #  quantity_in_stock: Количество на складе
+      #  article: Артикль
+      #  minimum_quantity: Минимальное количество в 1 заказе
+      #client:
+      #  name: Ф.И.О.
+      #  phone: Контактный телефон
+      #  address: Адрес
+      #  email: Электронная почта
+      #order:
+      #  client: Информация о клиенте
+      #  order_number: Номер заказа
+      #  payment_method: Способ оплаты
+      #  delivery_method: Способ доставки
+      #  list_products: Список товаров
+      #  cost_goods: Стоимость товара на момент заказа
+      #  total_cost: Общая стоимость с доставкой
+      #  order_date: Дата заказа
+      #list: &lists
+      #  product: Товары
+      #  order: Заказы
+      #  product_id: Товары_id
+      #  order_id: Заказы_id
+      #  quantity_at_order: Количество товара
+      #
+

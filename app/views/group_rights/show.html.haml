@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Information system:
+  = @group_right.information_system
+%p
+  %b Group name:
+  = @group_right.group_name
+%p
+  %b Parameter:
+  = @group_right.parameter
+
+= link_to 'Edit', edit_group_right_path(@group_right)
+\|
+= link_to 'Back', group_rights_path

@@ -1,0 +1,118 @@
+nav.topbar
+  position: fixed
+  height: 50px
+  width: 84%
+  left: 16%
+  z-index: 10
+  -ms-user-select: none
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+    overflow: hidden
+    background-color: #ECF0F1
+    color: black
+  li
+    float: left
+    a
+      display: block
+      color: white
+      text-align: center
+      padding: 13px 16px
+      text-decoration: none
+    &:not(.btn) a:hover
+      background-color: #18B3BC
+  .active
+    background-color: #18BC9C
+  .hidden
+    display: none
+  .topbar-dropdown-head-selected
+    background-color: #FFFF01
+  li a
+    display: inline-block
+    text-align: center
+    padding: 13px 16px
+    text-decoration: none
+    color: black
+
+.topbar-dropdown-head
+  display: inline-block
+  text-align: center
+  padding: 13px 16px
+  text-decoration: none
+
+nav.topbar
+  .topbar-dropdown
+    display: inline-block
+  .topbar-dropdown-content
+    position: absolute
+    background-color: #18BC9C
+    min-width: 160px
+    z-index: 10
+    a
+      padding: 13px 16px
+      text-decoration: none
+      display: block
+      text-align: left
+  .right
+    float: right
+  .btn
+    float: right
+    span
+      border: 1px solid white
+      padding: 5px 9px
+      border-radius: 5px
+      display: none
+      &:hover
+        background-color: #18BC9C
+
+.content
+  z-index: 5
+  position: absolute
+  top: 40px
+
+nav.sidebar
+  top: 0px
+
+nav.sidebar
+  width: 16%
+  background-color: #2C3E50
+  position: fixed
+  height: 100%
+  overflow: auto
+  -ms-user-select: none
+  -moz-user-select: none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  a
+    display: block
+    color: white
+    padding: 12px 16px
+    text-decoration: none
+    &.active
+      background-color: #18BC9C
+      color: white
+    &:hover
+      background-color: #18B3BC
+      color: white
+  div.hidden
+    display: none
+  .sidebar-dropdown-head-selected
+    background: #BC9C18
+    color: white
+  .sidebar-dropdown-selected
+    border-left: 10px solid #555
+
+div.content
+  left: 16.66666%
+  padding: 5px
+  width: 82.75555%
+  
+.btn-lg, .btn-group-lg > .btn
+  padding: 5rem 5rem
+  font-size: 10rem
+  line-height: 1.5
+  border-radius: 30rem

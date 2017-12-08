@@ -1,0 +1,19 @@
+= form_for @right_group_permition do |f|
+  - if @right_group_permition.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@right_group_permition.errors.count, "error")} prohibited this right_group_permition from being saved:"
+      %ul
+        - @right_group_permition.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :permition
+    = f.text_field :permition
+  .field
+    = f.label :group_right
+    = f.text_field :group_right
+  .field
+    = f.label :parameter
+    = f.text_field :parameter  
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  information_system: one
+  name: MyString
+  access_key: MyString
+
+two:
+  information_system: two
+  name: MyString
+  access_key: MyString

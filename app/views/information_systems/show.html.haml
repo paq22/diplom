@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b= t('activerecord.attributes.information_system.name')
+  = @information_system.name
+%p
+  %b= t('activerecord.attributes.information_system.link')
+  = @information_system.link
+%p
+  %b= t('activerecord.attributes.information_system.access key')
+  = @information_system.access_key
+
+= link_to t('button.edit'), edit_information_system_path(@information_system)
+\|
+= link_to t('button.back'), information_systems_path

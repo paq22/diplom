@@ -1,0 +1,17 @@
+
+%p
+  %b= t('activerecord.attributes.role.notation')
+  = @role.notation
+%p
+  %b= t('activerecord.attributes.role.name')
+  = @role.name
+%p
+  %b= t('activerecord.attributes.role.short name')
+  = @role.short_name
+%p
+  %b= t('activerecord.attributes.role.description')
+  = @role.description
+
+= link_to t('button.edit'), edit_role_path(@role)
+\|
+= link_to t('button.back'), roles_path
