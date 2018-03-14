@@ -1,25 +1,24 @@
-%h1 Listing dictionary_accesses
+%h1= t("headers.#{params['controller']}.#{params['action']}")
+.card.border-light.mb-3
+  .card-header
+    = link_to t('button.new.dictionary_access'), new_dictionary_access_path, class:"btn btn-success"
+%input{type: "text", id: "input1", class: "form-control", placeholder: "Ключ доступа для словаря"}
+%input{type: "text", id: "input2", class: "form-control", placeholder: "Ключ доступа для информационной системы"}
+%button#test.btn.btn-success
+  Проверка
 
-%table.table.table-striped.table-hover
-  %thead.thead-inverse
+%table.table.table-hover.table-striped
+  %thead.thead-dark
     %tr
-      %th Information system
-      %th Name
-      %th Access key
+      %th= t('activerecord.attributes.dictionary_access.information_system')
+      %th= t('activerecord.attributes.dictionary_access.name')
+      %th= t('activerecord.attributes.dictionary_access.access_key')
       %th
-      %th
-      %th
-
   %tbody
     - @dictionary_accesses.each do |dictionary_access|
       %tr
-        %td= dictionary_access.information_system.name
-        %td= dictionary_access.name
-        %td= dictionary_access.access_key
-        %td= link_to 'Show', dictionary_access
-        %td= link_to 'Edit', edit_dictionary_access_path(dictionary_access)
-        %td= link_to 'Destroy', dictionary_access, method: :delete, data: { confirm: 'Are you sure?' }
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.information_system.name
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.name
+        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.access_key
+        %td= link_to t('button.destroy'), dictionary_access, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
 
-%br
-
-= link_to 'New Dictionary access', new_dictionary_access_path

@@ -9,7 +9,14 @@
 %p
   %b= t('activerecord.attributes.information_system.access key')
   = @information_system.access_key
-
+  
+%p
+  %b Доступные словари
+  %ul
+    - @information_system.dictionary_accesses.all.each do |d|
+      %li= link_to d.name, d
+  
+  
 = link_to t('button.edit'), edit_information_system_path(@information_system)
 \|
 = link_to t('button.back'), information_systems_path

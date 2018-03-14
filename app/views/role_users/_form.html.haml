@@ -7,9 +7,9 @@
           %li= message
 
   .field
-    = f.label :user
+    =f.label :user
     = f.select :user_id,
-    options_for_select(User.all.map{|t| ["#{t.ln} " + " #{t.fn}" + " #{t.sn}" + " #{t.login}" , t.id]}, f.object.user_id),
+    options_for_select( User.all.map{|t| [" #{t.ln} " + " #{t.fn}" + " #{t.sn}" + " #{t.login}" , t.id]}, f.object.user_id),
     {include_blank: true}
   .field
     = f.label :role

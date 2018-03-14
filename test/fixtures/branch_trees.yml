@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  name: MyString
+  digital_name: MyString
+  address: MyString
+  branch_tree: one
+  level: MyString
+
+two:
+  full_name: MyString
+  name: MyString
+  digital_name: MyString
+  address: MyString
+  branch_tree: two
+  level: MyString

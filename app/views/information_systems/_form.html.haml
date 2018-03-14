@@ -19,21 +19,47 @@
   = hidden_field_tag(:form_id, :permitions)
   .row
     .col-md-12
-      = link_to_add_permition(f, f.object)      
-  = f.fields_for :permitions do |fn|
-    .col-md-6
-      .panel.panel-info
-        .panel-heading
-          %span.toright
-            = link_to_remove_permition(fn)
-            .clearfix
-        .panel-body
-          .field
-            = fn.label :act
-            = fn.text_field :act
-          .field
-            = fn.label :parameter
-            = fn.text_field :parameter
+      = link_to_add_permition(f, f.object)
+      = link_to_add_dictionary_access(f, f.object)
+  .row
+    .col-md-6#qq2
+      = f.fields_for :permitions do |fn|
+        .col-md-6
+          .panel.panel-info
+            .panel-heading
+              %span.toright
+                = link_to_remove_permition(fn)
+                .clearfix
+            .panel-body
+              .field
+                = fn.label :act
+                = fn.text_field :act
+              .field
+                = fn.label :parameter
+                = fn.text_field :parameter
+
+      
+    .col-md-6#qqe
+      = f.fields_for :dictionary_accesses do |fn|
+        .col-md-6
+          .panel.panel-info
+            .panel-heading
+              %span.toright
+                = link_to_remove_dictionary_access(fn)
+                .clearfix
+            .panel-body
+              .field
+                = f.label :information_system
+                = f.select :information_system_id,
+                options_for_select(InformationSystem.all.map{|t| ["#{t.name} " , t.id]}, f.object.information_system_id),
+                {include_blank: true}
+              .field
+                = f.label :name
+                = f.text_field :name
+              .field
+                = f.label :access_key
+                = f.text_field :access_key
+
 
   .actions
     = f.submit 'Save'

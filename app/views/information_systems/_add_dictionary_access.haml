@@ -1,0 +1,16 @@
+.col-md-12
+  .card.border-primary.mb-3
+    .card-header.succes
+      .col-md-4
+        Добавить право к словарю
+      .col-md-2.col-md-offset-6
+        %span
+          = link_to_remove_dictionary_access(fn)
+        .clearfix
+    .panel-body
+      .field
+        = fn.label :name
+        = fn.text_field :name
+      .field
+        = fn.label :access_key
+        = fn.text_field :access_key

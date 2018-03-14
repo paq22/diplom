@@ -4,12 +4,8 @@ class RoleUsersController < ApplicationController
   # GET /role_users
   # GET /role_users.json
   def index
-    #@role_users = RoleUser.all
-    unless params[:id].nil?
-      @role_users = RoleUser.where(user_id: params[:id])
-    else
-      @role_users = RoleUser.all
-    end
+    @role_users = RoleUser.all
+
   end
 
 
@@ -20,8 +16,8 @@ class RoleUsersController < ApplicationController
 
   # GET /role_users/new
   def new
-    @role_user = RoleUser.new
-  end
+@role_user = RoleUser.new
+end
 
   # GET /role_users/1/edit
   def edit

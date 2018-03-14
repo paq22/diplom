@@ -106,7 +106,7 @@ ru:
         link: Базовый адрес
         access_key: Ключ доступа
       dictionary_access:
-        information_system_id: Информационная система
+        information_system: Информационная система
         name: Название словарей
         access_key: Ключ доступа
       #role_user: &role_users

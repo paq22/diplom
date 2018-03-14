@@ -16,4 +16,9 @@
 //= require turbolinks
 //= require sidebar
 //= require topbar
+//= require scroll_indicator
+//= require style
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/ru
 //= require_tree .

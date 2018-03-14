@@ -70,6 +70,7 @@ class InformationSystemsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def information_system_params
       params.require(:information_system).permit(:name, :link, :access_key,
-                    permitions_attributes: [:id, :_destroy, :act, :parameter])
+                    permitions_attributes: [:id, :_destroy, :act, :parameter],
+                    dictionary_accesses_attributes: [:id, :_destroy, :name, :access_key])
     end
 end

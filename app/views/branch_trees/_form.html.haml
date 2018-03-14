@@ -1,0 +1,28 @@
+= form_for @branch_tree do |f|
+  - if @branch_tree.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@branch_tree.errors.count, "error")} prohibited this branch_tree from being saved:"
+      %ul
+        - @branch_tree.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :full_name
+    = f.text_field :full_name
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :digital_name
+    = f.text_field :digital_name
+  .field
+    = f.label :address
+    = f.text_field :address
+  .field
+    = f.label :branch_tree
+    = f.text_field :branch_tree
+  .field
+    = f.label :level
+    = f.text_field :level
+  .actions
+    = f.submit 'Save'

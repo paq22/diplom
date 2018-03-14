@@ -1,14 +1,16 @@
-.col-md-6
-  .panel.panel-info
-    .panel-heading
-      Новые права на конкретные действия
-      %span.toright
-        = link_to_remove_permition(fn)
-      .clearfix
-    .panel-body
-      .field
-        = fn.label :act
-        = fn.text_field :act
-      .field
-        = fn.label :parameter
-        = fn.text_field :parameter
+.col-md-12
+  .card.border-primary.mb-3
+    .card-header.succes
+      .col-md-4
+        Новые права на конкретные действия
+      .col-md-2.col-md-offset-6
+        %span
+          = link_to_remove_permition(fn)
+        .clearfix
+      .panel-body
+        .field
+          = fn.label :act
+          = fn.text_field :act
+        .field
+          = fn.label :parameter
+          = fn.text_field :parameter

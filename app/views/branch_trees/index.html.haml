@@ -1,0 +1,31 @@
+%h1 Listing branch_trees
+
+%table
+  %thead
+    %tr
+      %th Full name
+      %th Name
+      %th Digital name
+      %th Address
+      %th Branch tree
+      %th Level
+      %th
+      %th
+      %th
+
+  %tbody
+    - @branch_trees.each do |branch_tree|
+      %tr
+        %td= branch_tree.full_name
+        %td= branch_tree.name
+        %td= branch_tree.digital_name
+        %td= branch_tree.address
+        %td= branch_tree.branch_tree
+        %td= branch_tree.level
+        %td= link_to 'Show', branch_tree
+        %td= link_to 'Edit', edit_branch_tree_path(branch_tree)
+        %td= link_to 'Destroy', branch_tree, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Branch tree', new_branch_tree_path

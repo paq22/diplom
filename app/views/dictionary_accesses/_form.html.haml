@@ -7,8 +7,10 @@
           %li= message
 
   .field
-    = f.label :information_system_id
-    = f.text_field :information_system_id
+    = f.label :information_system
+    = f.select :information_system_id,
+    options_for_select(InformationSystem.all.map{|t| ["#{t.name} " , t.id]}, f.object.information_system_id),
+    {include_blank: true}
   .field
     = f.label :name
     = f.text_field :name

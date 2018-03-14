@@ -3,8 +3,21 @@ function topbar_dropdown_head_click(){
   $($(this).data("target")).toggleClass("hidden");
 }
 
-function topbar_ready(){
-  $(".topbar-dropdown-head").click(topbar_dropdown_head_click);
+function btn_click(){
+  $(".topbar").toggleClass("expand");
+  if($(".topbar-content").is(":visible")){
+    $(".topbar-content").css('display','none');
+  }
+  else{
+    $(".topbar-content").css('display','block');
+  }
 }
 
-$(document).ready(topbar_ready);
+function topbar_ready(){
+	$(".topbar-dropdown-head").click(topbar_dropdown_head_click);
+    $(".btn").click(btn_click);
+}
+$(document).on('turbolinks:load', topbar_ready);
+
+
+

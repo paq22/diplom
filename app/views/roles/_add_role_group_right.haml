@@ -1,9 +1,10 @@
-.col-md-6
-  .panel.panel-info
-    .panel-heading
-      .small
+.col-md-12
+  .card.border-primary.mb-3
+    .card-header
+      .col-md-4
         Добавить группу прав
-        %span.toright
+      .col-md-2.col-md-offset-6
+        %span
           = link_to_remove_role_group_right(fn)
         .clearfix
     .panel-body

@@ -42,19 +42,18 @@
       = link_to "(2) Роли", roles_path
       = link_to "(3) Информационная система", information_systems_path
       = link_to "(4) Информационная система - Доступ к словарю", dictionary_accesses_path
-      = link_to "(6) Роль - Пользователь", role_users_path
       = link_to "(7) Группы прав", group_rights_path
       = link_to "(8) Права на конкретные действия", permitions_path
-      = link_to "(9) Роль - Группа прав", role_group_rights_path
-      = link_to "(10) Права групп прав", right_group_permitions_path
-      = link_to "(11) Право - Роль", permition_roles_path
+
+
       .sidebar-dropdown
         %a.sidebar-dropdown-head{"data-target" => "#sidebar-dropdown-1"}
-          Выпадающий список
+          "УДАЛЕНО"
         #sidebar-dropdown-1.sidebar-dropdown-content.hidden
-          %a Объект 1
-          %a Объект 2
-          %a Объект 3
+          = link_to "(6) Роль - Пользователь", role_users_path, class:"shadow"
+          = link_to "(9) Роль - Группа прав", role_group_rights_path, class:"shadow"
+          = link_to "(10) Права групп прав", right_group_permitions_path, class:"shadow"
+          = link_to "(11) Право - Роль", permition_roles_path, class:"shadow"
           .sidebar-dropdown
             %a.sidebar-dropdown-head.active{"data-target" => "#sidebar-dropdown-2"}
               Активный выпадающий список
@@ -62,15 +61,9 @@
               %a Объект 1
               %a Объект 2
               %a Объект 3
-      %a Обычный объект
-      .sidebar-dropdown.active
-        %a.sidebar-dropdown-head{"data-target" => "#sidebar-dropdown-3"}
-          Это боковое меню требует подключения следующих файлов:
-        #sidebar-dropdown-3.sidebar-dropdown-content.hidden
-          %a css/sidebar.css
-          %a js/sidebar.js
 
     .content
+      %p=params
       %p=yield
 
 

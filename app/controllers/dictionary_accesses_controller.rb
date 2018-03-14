@@ -10,6 +10,7 @@ class DictionaryAccessesController < ApplicationController
   # GET /dictionary_accesses/1
   # GET /dictionary_accesses/1.json
   def show
+
   end
 
   # GET /dictionary_accesses/new
@@ -50,7 +51,29 @@ class DictionaryAccessesController < ApplicationController
       end
     end
   end
-
+  
+  def get_table
+    dictionary = DictionaryAccess.where(access_key: params['ak1']).first
+    @result = ""
+    if dictionary
+      if dictionary.information_system.access_key == params['ak2']
+        begin
+          @result = instance_eval("#{dictionary.name}.all")
+        rescue
+          @result = "Ошибка при составлении JSON"
+        end
+      else
+        @result = "Не найдена информационная система с таким словарем (#{params["ak2"]})"
+      end
+    else
+      @result = "Не найден словарь (#{params["ak1"]})"
+    end
+    respond_to do |format|
+      format.json {render json: @result}
+    end
+  end
+  
+  
   # DELETE /dictionary_accesses/1
   # DELETE /dictionary_accesses/1.json
   def destroy

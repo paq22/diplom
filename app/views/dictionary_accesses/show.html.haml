@@ -1,15 +1,15 @@
-%p#notice= notice
 
 %p
-  %b Information system:
-  = @dictionary_access.information_system
+  %b= t('activerecord.attributes.dictionary_access.information_system')
+  = @dictionary_access.information_system.name
 %p
-  %b Name:
+  %b= t('activerecord.attributes.dictionary_access.name')
   = @dictionary_access.name
 %p
-  %b Access key:
+  %b= t('activerecord.attributes.dictionary_access.access_key')
   = @dictionary_access.access_key
 
-= link_to 'Edit', edit_dictionary_access_path(@dictionary_access)
+
+= link_to t('button.edit'), edit_dictionary_access_path(@dictionary_access)
 \|
-= link_to 'Back', dictionary_accesses_path
+= link_to t('button.back'), dictionary_accesses_path

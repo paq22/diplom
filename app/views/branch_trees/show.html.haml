@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Full name:
+  = @branch_tree.full_name
+%p
+  %b Name:
+  = @branch_tree.name
+%p
+  %b Digital name:
+  = @branch_tree.digital_name
+%p
+  %b Address:
+  = @branch_tree.address
+%p
+  %b Branch tree:
+  = @branch_tree.branch_tree
+%p
+  %b Level:
+  = @branch_tree.level
+
+= link_to 'Edit', edit_branch_tree_path(@branch_tree)
+\|
+= link_to 'Back', branch_trees_path

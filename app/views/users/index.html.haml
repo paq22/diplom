@@ -5,6 +5,7 @@
 %table.table.table-hover.table-striped
   %thead.thead-dark
     %tr
+      %th №
       %th= t('activerecord.attributes.user.ln')
       %th= t('activerecord.attributes.user.fn')
       %th= t('activerecord.attributes.user.sn')
@@ -13,11 +14,11 @@
       %th= t('activerecord.attributes.user.login')
       %th= t('activerecord.attributes.user.sex')
       %th
-      %th
 
   %tbody
     - @users.each do |user|
       %tr
+        %td= user.id
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.ln
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.fn
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.sn
@@ -26,5 +27,4 @@
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.login
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.sex
         %td= link_to t('button.destroy'), user, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
-        %td= link_to t("Редактирование роли"), role_users_path(id: user), class:"btn btn-primary"
 

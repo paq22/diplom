@@ -1,0 +1,25 @@
+.col-md-6
+  .card.border-primary.mb-3
+    .card-header
+      .col-md-4
+        Добавить роль
+      .col-md-2.col-md-offset-6
+        %span
+          = link_to_remove_role_user(fn)
+      .clearfix
+    .card-body
+      .row
+        .col-md-6.col-md-offset-3
+          = fn.label :role
+          = fn.select :role_id,
+          options_for_select(Role.all.map{|t| ["#{t.notation} " + " #{t.name}", t.id]}, fn.object.role_id),
+          {include_blank: true}, class:"form-control "
+
+          = fn.label :information_system
+          = fn.select :information_system_id,
+          options_for_select(InformationSystem.all.map{|t| ["#{t.name}", t.id]}, fn.object.information_system_id),
+          {include_blank: true}, class:"form-control "
+
+          = fn.label :parameter
+          = fn.text_field :parameter, class:"form-control "
+
