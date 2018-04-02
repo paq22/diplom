@@ -2,7 +2,7 @@
 .card.border-light.mb-3
   .card-header
     = link_to t('button.new.user'), new_user_path, class:"btn btn-success"
-%table.table.table-hover.table-striped
+%table.table.table-hover.table-striped.my_table
   %thead.thead-dark
     %tr
       %th №
@@ -18,7 +18,7 @@
   %tbody
     - @users.each do |user|
       %tr
-        %td= user.id
+        %td
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.ln
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.fn
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.sn
@@ -27,4 +27,7 @@
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.login
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.sex
         %td= link_to t('button.destroy'), user, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
-
+= paginate @users, id: "paginate"
+ 
+ 
+ 

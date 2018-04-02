@@ -27,6 +27,7 @@
   if confirm("Вы уверены?")
     link.parent().find("input[type=hidden].remove_fields").first().val("1")
     link.parent().parent().parent().parent().parent().hide()
+    false
   false
 @del_permition_role_f = ->
   $('a.remove_permition_role').on 'click', ->

@@ -1,4 +1,4 @@
-= form_for @user do |f|
+= form_for @user do |f|  
   - if @user.errors.any?
     #error_explanation
       %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
@@ -10,11 +10,11 @@
   %p
     .row
       .col-md-2
-        %img{:src => "/images/person.png"}
       .lin_ver
       .col-md-6
+      
         = f.label :ln
-        = f.text_field :ln, class:"form-control "
+        = f.text_field :ln, class:"form-control"
         = f.label :fn
         = f.text_field :fn, class:"form-control "
   
@@ -22,7 +22,10 @@
         = f.text_field :sn, class:"form-control"
         
         = f.label :bday
-        = f.text_field :bday, class:"form-control datepicker"
+        .input-group.datepicker
+          = f.text_field :bday, class:"form-control datepicker"
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-calendar
         
         = f.label :email
         = f.text_field :email, class:"form-control "
@@ -32,18 +35,19 @@
         
         = f.label :sex
         %br
-        = f.select :sex, ['м', 'ж'], class:"form-control"
+        =# f.select :sex, ['м', 'ж'], {}, class:"form-control selectpicker", data: {value: f.object.sex}
+        = f.select :sex, options_for_select(['м', 'ж'], ['м', 'ж']), {include_blank: false}, {class:"form-control", data: {value: f.object.sex}}
   
     = hidden_field_tag(:form_id, :role_users)
     %br
       .row
         .col-md-6.col-md-offset-3
           .col-md-2
-            = link_to t('button.back'), roles_path, class: "btn btn-danger"
+            = link_to t('button.back'), users_path, class: "btn btn-danger"
           .col-md-4.col-md-offset-1
             = link_to_add_role_user(f, f.object)
           .col-md-3.col-md-offset-2
-            = f.submit t('button.save')
+            = f.submit t('button.save'), class: "btn btn-primary"
           
     = f.fields_for :role_users do |fn|
       .col-md-6

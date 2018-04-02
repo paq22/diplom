@@ -1,8 +1,7 @@
 nav.topbar
   position: fixed
   height: 50px
-  width: 84%
-  left: 16%
+  width: 100%
   z-index: 10
   -ms-user-select: none
   -moz-user-select: none
@@ -13,8 +12,11 @@ nav.topbar
     margin: 0
     padding: 0
     overflow: hidden
-    background-color: #ECF0F1
-    color: black
+    background-color: #202D3A
+    border: 2px solid #202D3A
+    box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #04493C
+    background: linear-gradient(0.25turn, #2C3E50	, #415A72, #415A72 , #2C3E50)
+    color: white
   li
     float: left
     a
@@ -24,7 +26,10 @@ nav.topbar
       padding: 13px 16px
       text-decoration: none
     &:not(.btn) a:hover
-      background-color: #18B3BC
+      background-color: #18BC9C
+      border: 2px solid #087A64
+      box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #04493C
+      background: linear-gradient(0.25turn,  #087A64, #18BC9C	45%, #087A64)
   .active
     background-color: #18BC9C
   .hidden
@@ -36,7 +41,7 @@ nav.topbar
     text-align: center
     padding: 13px 16px
     text-decoration: none
-    color: black
+    color: white
 
 .topbar-dropdown-head
   display: inline-block
@@ -79,10 +84,14 @@ nav.sidebar
 
 nav.sidebar
   width: 16%
+  margin-top: 43px
   background-color: #2C3E50
   position: fixed
   height: 100%
   overflow: auto
+  border: 2px solid #202D3A
+  box-shadow: 0 0 0 60px rgba(0,0,0,0) inset, .1em .1em .2em #2C3E50
+  background: linear-gradient(0.25turn, #2C3E50	, #354B60, #354B60 62%, #2C3E50)
   -ms-user-select: none
   -moz-user-select: none
   -khtml-user-select: none
@@ -130,3 +139,28 @@ div.content
   border-left: 1px solid #ccc
   margin-left: 20px
   padding-left: 10px
+
+.black
+  color: white
+  background: #354B60
+.centr
+  text-align: center
+.my_table
+  tbody
+    tr
+      td
+        vertical-align: middle
+
+.fio
+  font-size: 24px
+  text-align: center
+
+.table_index
+  text-align: left
+  width: 450px
+  th
+    width: 37%
+  tr
+    border-bottom: 1px dotted #9B9B9B
+    
+  

@@ -5,18 +5,20 @@
       %ul
         - @role.errors.full_messages.each do |message|
           %li= message
-  .field
-    = f.label :notation
-    = f.text_field :notation
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :short_name
-    = f.text_field :short_name
-  .field
-    = f.label :description
-    = f.text_field :description
+  .lin_gor
+  %p
+    .row
+      .col-md-2
+      .lin_ver
+      .col-md-6  
+        = f.label :notation
+        = f.text_field :notation, class:"form-control "
+        = f.label :name
+        = f.text_field :name, class:"form-control "
+        = f.label :short_name
+        = f.text_field :short_name, class:"form-control "
+        = f.label :description
+        = f.text_field :description, class:"form-control "
   
   -#= hidden_field_tag(:form_id, :role_group_rights)
   .row

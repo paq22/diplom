@@ -13,26 +13,9 @@
     %nav.topbar
       %ul
         %li
-          %a На главную
-        %li
-          %a.active Текущий объект
-        %li
-          %a Обычный объект
-        %li
-          .topbar-dropdown
-            %a.topbar-dropdown-head{"data-target" => "#topbar-dropdown-1"}
-              Выпадающий список
-            #topbar-dropdown-1.topbar-dropdown-content.hidden
-              %a
-                Обычный объект
-              %a.active
-                Текущий объект
-              %a
-                Обычный объект
+          %img{:src => "/images/logo4.png", :width=>"250",:height=>"42"}
         %li.right
           = link_to "Авторизация",admin_session_path, class:"a"
-        %li.right.active
-          %a Текущий объект справа
         %li.btn
           %a
             %span V
@@ -63,7 +46,6 @@
               %a Объект 3
 
     .content
-      %p=params
       %p=yield
 
 

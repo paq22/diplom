@@ -5,7 +5,7 @@ module RoleUsersHelper
       :child_index => 'new_role_user') do |builder|
       render('users/add_role_user', fn: builder)
     end
-    link_to(?#, class: 'btn mbottom20 btn-info', 
+    link_to(?#, class: 'btn btn-outline-success', 
         id: 'add_role_user_link', data: {content: "#{fields}"}) do 
       "Новая роль для пользователя" 
     end

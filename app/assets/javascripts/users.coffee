@@ -36,5 +36,11 @@ user_ready = ->
   window.add_role_user_f()
   window.del_role_user_f()
 
+  $('.my_table tbody tr').each (i) ->
+    number = i + 1
+    $(this).find('td:first').text number + '.'
+    return
+
+
 #$(document).ready information_system_ready
 $(document).on 'turbolinks:load', user_ready

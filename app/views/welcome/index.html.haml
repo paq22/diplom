@@ -1,8 +1,10 @@
-%h1= t('hello')
-.card.border-primary.mb-3{:style => "max-width: 50rem;"}
-  .card-header Header
-  .card-body.text-primary
-    %h4.card-title Primary card title
-    %p.card-text Some quick example text to build on the card title and make up the bulk of the cards content.
-%button{class: "btn btn-success"}
-  Я кпопка!
+%body.black
+  %h1.cenrt= t('hello')
+  %img{:src => "/images/logo4.png", :width=>"1000",:height=>"300"}
+  .card.border-primary.mb-3{:style => "max-width: 50rem;"}
+    .card-header Header
+    .card-body.text-primary
+      %h4.card-title Primary card title
+      %p.card-text Some quick example text to build on the card title and make up the bulk of the cards content.
+  %button{class: "btn btn-success"}
+    Я кпопка!

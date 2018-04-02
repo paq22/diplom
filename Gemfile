@@ -54,6 +54,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-i18n'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'bootstrap-select-rails'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem 'bootstrap3-datetimepicker-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'

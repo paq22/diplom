@@ -12,8 +12,8 @@
 //
 //= require jquery3
 //= require jquery_ujs
-//= require bootstrap-sprockets
 //= require turbolinks
+//= require bootstrap
 //= require sidebar
 //= require topbar
 //= require scroll_indicator
@@ -21,4 +21,7 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require moment/ru
+//= require bootstrap-select
+//= require defaults-ru_RU
 //= require_tree .
+
