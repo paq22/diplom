@@ -1,19 +1,25 @@
 %h1= t("headers.#{params['controller']}.#{params['action']}")
 .card.border-light.mb-3
   .card-header
-    = link_to 'New Group right', new_group_right_path, class:"btn btn-success"
-%table.table.table-hover.table-striped
-  %thead.thead-dark
-    %tr
-      %th Information system
-      %th Group name
-      %th Parameter
-      %th
-
-  %tbody
-    - @group_rights.each do |group_right|
+    = link_to t('button.new.group_right'), new_group_right_path, class:"btn btn-success"
+.table-responsive
+  %table.table.table-hover.table-striped.my_table{style: "width:100%;"}
+    %thead.thead-dark
       %tr
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{group_right.id}"]}}= group_right.information_system.name
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{group_right.id}"]}}= group_right.group_name
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{group_right.id}"]}}= group_right.parameter
-        %td= link_to t('button.destroy'), group_right, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
+        %th №
+        %th= t('activerecord.attributes.group_right.information_system')
+        %th= t('activerecord.attributes.group_right.group_name')
+        %th= t('activerecord.attributes.group_right.parameter')
+        %th
+
+    %tbody
+      - @group_rights.each_with_index do |group_right, i|
+        %tr
+          %td
+            =succeed '.' do
+              =i + 1 + 10 * (@page.to_i - 1)
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{group_right.id}"]}}= group_right.information_system.name
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{group_right.id}"]}}= group_right.group_name
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{group_right.id}"]}}= group_right.parameter
+          %td= link_to t('button.destroy'), group_right, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
+= paginate @group_rights, id: "paginate"

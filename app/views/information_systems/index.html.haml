@@ -2,22 +2,26 @@
 .card.border-light.mb-3
   .card-header
     = link_to t('button.new.information_system'), new_information_system_path, class:"btn btn-success"
-
-%table.table.table-hover.table-striped
-  %thead.thead-dark
-    %tr
-      %th= t('activerecord.attributes.information_system.name')
-      %th= t('activerecord.attributes.information_system.link')
-      %th= t('activerecord.attributes.information_system.access_key')
-      %th
-      %th
-
-  %tbody
-    - @information_systems.each do |information_system|
+.table-responsive
+  %table.table.table-hover.table-striped.my_table{style: "width:100%;"}
+    %thead.thead-dark
       %tr
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{information_system.id}"]}}= information_system.name
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{information_system.id}"]}}= information_system.link
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{information_system.id}"]}}= information_system.access_key
-        %td= link_to t('button.destroy'), information_system, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
-        %td= link_to "Настроить группы прав", group_rights_path(id: information_system), class:"btn btn-primary"
-
+        %th №
+        %th= t('activerecord.attributes.information_system.name')
+        %th= t('activerecord.attributes.information_system.link')
+        %th= t('activerecord.attributes.information_system.access_key')
+        %th
+        %th
+  
+    %tbody
+      - @information_systems.each_with_index do |information_system, i|
+        %tr
+          %td
+            =succeed '.' do
+              =i + 1 + 10 * (@page.to_i - 1)
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{information_system.id}"]}}= information_system.name
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{information_system.id}"]}}= information_system.link
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{information_system.id}"]}}= information_system.access_key
+          %td= link_to t('button.destroy'), information_system, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
+          %td= link_to "Настроить группы прав", group_rights_path(id: information_system), class:"btn btn-primary"
+= paginate @information_systems, id: "paginate"

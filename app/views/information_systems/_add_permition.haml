@@ -1,5 +1,5 @@
 .col-md-12
-  .card.border-primary.mb-3
+  .card.border-success.mb-3
     .card-header.succes
       .col-md-4
         Новые права на конкретные действия
@@ -7,10 +7,10 @@
         %span
           = link_to_remove_permition(fn)
         .clearfix
-      .panel-body
-        .field
-          = fn.label :act
-          = fn.text_field :act
-        .field
-          = fn.label :parameter
-          = fn.text_field :parameter
+    .panel-body
+      .field
+        = fn.label :act
+        = fn.text_field :act
+      .field
+        = fn.label :parameter
+        = fn.text_field :parameter

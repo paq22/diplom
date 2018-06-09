@@ -4,7 +4,9 @@ class InformationSystemsController < ApplicationController
   # GET /information_systems
   # GET /information_systems.json
   def index
-    @information_systems = InformationSystem.all
+    @information_systems = InformationSystem.all.page(params[:page]).per(10)
+    @page = params[:page]
+    @page = 1 if @page.blank?
   end
 
   # GET /information_systems/1

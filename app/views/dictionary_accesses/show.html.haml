@@ -1,15 +1,16 @@
-
-%p
-  %b= t('activerecord.attributes.dictionary_access.information_system')
-  = @dictionary_access.information_system.name
-%p
-  %b= t('activerecord.attributes.dictionary_access.name')
-  = @dictionary_access.name
-%p
-  %b= t('activerecord.attributes.dictionary_access.access_key')
-  = @dictionary_access.access_key
-
-
-= link_to t('button.edit'), edit_dictionary_access_path(@dictionary_access)
-\|
-= link_to t('button.back'), dictionary_accesses_path
+.card.border-dark.mb-3{:style => "max-width: 60rem;"}
+  .card-body
+    %table.table_index_base
+      %tr
+        %th= t('activerecord.attributes.dictionary_access.information_system')
+        %td= @dictionary_access.information_system.name 
+      %tr
+        %th= t('activerecord.attributes.dictionary_access.name')
+        %td= @dictionary_access.name
+      %tr
+        %th= t('activerecord.attributes.dictionary_access.access_key')
+        %td= @dictionary_access.access_key
+.row
+  .col-md-6.col-md-offset-2
+    = link_to t('button.edit'), edit_dictionary_access_path(@dictionary_access), class: "btn btn-primary"
+    = link_to t('button.back'), dictionary_accesses_path, class: "btn btn-danger"

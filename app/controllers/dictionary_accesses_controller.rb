@@ -4,7 +4,9 @@ class DictionaryAccessesController < ApplicationController
   # GET /dictionary_accesses
   # GET /dictionary_accesses.json
   def index
-    @dictionary_accesses = DictionaryAccess.all
+    @dictionary_accesses = DictionaryAccess.all.page(params[:page]).per(10)
+    @page = params[:page]
+    @page = 1 if @page.blank?
   end
 
   # GET /dictionary_accesses/1

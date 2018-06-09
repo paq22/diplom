@@ -1,17 +1,18 @@
-
-%p
-  %b= t('activerecord.attributes.role.notation')
-  = @role.notation
-%p
-  %b= t('activerecord.attributes.role.name')
-  = @role.name
-%p
-  %b= t('activerecord.attributes.role.short_name')
-  = @role.short_name
-%p
-  %b= t('activerecord.attributes.role.description')
-  = @role.description
-
-= link_to t('button.edit'), edit_role_path(@role)
-\|
-= link_to t('button.back'), roles_path
+.card.border-dark.mb-3{:style => "max-width: 60rem;"}
+  .card-header.fio
+    =@role.name
+  .card-body
+    %table.table_index_base
+      %tr
+        %th= t('activerecord.attributes.role.notation')
+        %td= @role.notation
+      %tr
+        %th= t('activerecord.attributes.role.short_name')
+        %td= @role.short_name
+      %tr
+        %th= t('activerecord.attributes.role.description')
+        %td= @role.description
+.row
+  .col-md-6.col-md-offset-2
+    = link_to t('button.edit'), edit_role_path(@role), class: "btn btn-primary"
+    = link_to t('button.back'), roles_path, class: "btn btn-danger"

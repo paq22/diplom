@@ -35,11 +35,9 @@ user_ready = ->
   $(".user_row").on 'click', user_click
   window.add_role_user_f()
   window.del_role_user_f()
+  $("#searchButton").on 'click', ->
+    $("#search").toggle();
 
-  $('.my_table tbody tr').each (i) ->
-    number = i + 1
-    $(this).find('td:first').text number + '.'
-    return
 
 
 #$(document).ready information_system_ready

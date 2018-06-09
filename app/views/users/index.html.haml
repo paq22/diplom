@@ -2,6 +2,48 @@
 .card.border-light.mb-3
   .card-header
     = link_to t('button.new.user'), new_user_path, class:"btn btn-success"
+    %button{class:"btn btn-secondary", style: "float: right", id: "searchButton"}
+      Поиск
+    - if is_search_params_empty?
+      %div#search
+        %p.bottom_20
+        = form_tag users_path(), method: :get do
+          .row
+            .col-md-4
+              = text_field_tag "search[user.ln]", nil, class: "form-control", placeholder: "Фамилия", value: value_for_form_text_field("user.ln")
+            .col-md-4
+              = text_field_tag "search[user.fn]", nil, class: "form-control", placeholder: "Имя", value: value_for_form_text_field("user.fn")
+            .col-md-4
+              = text_field_tag "search[user.sn]", nil, class: "form-control", placeholder: "Отчество", value: value_for_form_text_field("user.sn")
+          %p.bottom_10
+          .row
+            .col-md-4
+              = text_field_tag "search[user.email]", nil, class: "form-control", placeholder: "Электронная почта", value: value_for_form_text_field("user.email")
+            .col-md-4
+              = text_field_tag "search[user.login]", nil, class: "form-control", placeholder: "Логин", value: value_for_form_text_field("user.login")
+          %p.bottom_20
+          = submit_tag "Искать", class: 'btn btn-outline-success'
+          = link_to "Очистить фильтр", users_path, class:"btn btn-danger", style: "float: right"
+    -else
+      %div#search{style: "display: block"}
+        %p.bottom_20
+        = form_tag users_path(), method: :get do
+          .row
+            .col-md-4
+              = text_field_tag "search[user.ln]", nil, class: "form-control", placeholder: "Фамилия", value: value_for_form_text_field("user.ln")
+            .col-md-4
+              = text_field_tag "search[user.fn]", nil, class: "form-control", placeholder: "Имя", value: value_for_form_text_field("user.fn")
+            .col-md-4
+              = text_field_tag "search[user.sn]", nil, class: "form-control", placeholder: "Отчество", value: value_for_form_text_field("user.sn")
+          %p.bottom_10
+          .row
+            .col-md-4
+              = text_field_tag "search[user.email]", nil, class: "form-control", placeholder: "Электронная почта", value: value_for_form_text_field("user.email")
+            .col-md-4
+              = text_field_tag "search[user.login]", nil, class: "form-control", placeholder: "Логин", value: value_for_form_text_field("user.login")
+          %p.bottom_20
+          = submit_tag "Искать", class: 'btn btn-outline-success'
+          = link_to "Очистить фильтр", users_path, class:"btn btn-danger", style: "float: right"
 %table.table.table-hover.table-striped.my_table
   %thead.thead-dark
     %tr
@@ -16,9 +58,11 @@
       %th
 
   %tbody
-    - @users.each do |user|
+    - @users.each_with_index do |user, i|
       %tr
         %td
+          =succeed '.' do
+            =i + 1 + 10 * (@page.to_i - 1)
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.ln
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.fn
         %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{user.id}"]}}= user.sn

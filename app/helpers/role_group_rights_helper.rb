@@ -13,8 +13,8 @@ module RoleGroupRightsHelper
   
   def link_to_remove_role_group_right(form)  
     form.hidden_field(:_destroy, class: 'remove_fields') + 
-        link_to(?#, class: 'remove_fields remove_role_group_right') do 
-      ' Удалить'      
+        link_to(?#, class: 'remove_fields remove_role_group_right btn btn-danger') do 
+          icon('fas', 'times')     
     end
   end
 end

@@ -2,21 +2,26 @@
 .card.border-light.mb-3
   .card-header
     = link_to t('button.new.role'), new_role_path, class:"btn btn-success"
-
-%table.table.table-hover.table-striped
-  %thead.thead-dark
-    %tr
-      %th= t('activerecord.attributes.role.notation')
-      %th= t('activerecord.attributes.role.name')
-      %th= t('activerecord.attributes.role.short name')
-      %th= t('activerecord.attributes.role.description')
-      %th
-
-  %tbody
-    - @roles.each do |role|
+.table-responsive
+  %table.table.table-hover.table-striped.my_table{style: "width:100%;"}
+    %thead.thead-dark
       %tr
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role.id}"]}}=role.notation
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role.id}"]}}= role.name
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role.id}"]}}= role.short_name
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role.id}"]}}= role.description
-        %td= link_to t('button.destroy'), role, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
+        %th №
+        %th= t('activerecord.attributes.role.notation')
+        %th= t('activerecord.attributes.role.name')
+        %th= t('activerecord.attributes.role.short_name')
+        %th= t('activerecord.attributes.role.description')
+        %th
+  
+    %tbody
+      - @roles.each_with_index do |role, i|
+        %tr
+          %td
+            =succeed '.' do
+              =i + 1 + 10 * (@page.to_i - 1)
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role.id}"]}}=role.notation
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role.id}"]}}= role.name
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role.id}"]}}= role.short_name
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{role.id}"]}}= role.description
+          %td= link_to t('button.destroy'), role, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
+= paginate @roles, id: "paginate"

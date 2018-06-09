@@ -2,23 +2,35 @@
 .card.border-light.mb-3
   .card-header
     = link_to t('button.new.dictionary_access'), new_dictionary_access_path, class:"btn btn-success"
-%input{type: "text", id: "input1", class: "form-control", placeholder: "Ключ доступа для словаря"}
-%input{type: "text", id: "input2", class: "form-control", placeholder: "Ключ доступа для информационной системы"}
-%button#test.btn.btn-success
-  Проверка
-
-%table.table.table-hover.table-striped
-  %thead.thead-dark
-    %tr
-      %th= t('activerecord.attributes.dictionary_access.information_system')
-      %th= t('activerecord.attributes.dictionary_access.name')
-      %th= t('activerecord.attributes.dictionary_access.access_key')
-      %th
-  %tbody
-    - @dictionary_accesses.each do |dictionary_access|
+%p.bottom_20
+.row
+.card.border-light.mb-3
+  .card-header
+    .col-md-5
+      %input{type: "text", id: "input1", class: "form-control", placeholder: "Ключ доступа для словаря"}
+    .col-md-5
+      %input{type: "text", id: "input2", class: "form-control", placeholder: "Ключ доступа для информационной системы"}
+    .col-md-2
+      %button#test.btn.btn-success
+        Проверка
+%p.bottom_20
+.table-responsive
+  %table.table.table-hover.table-striped.my_table{style: "width:100%;"}
+    %thead.thead-dark
       %tr
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.information_system.name
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.name
-        %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.access_key
-        %td= link_to t('button.destroy'), dictionary_access, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
-
+        %th №
+        %th= t('activerecord.attributes.dictionary_access.information_system')
+        %th= t('activerecord.attributes.dictionary_access.name')
+        %th= t('activerecord.attributes.dictionary_access.access_key')
+        %th
+    %tbody
+      - @dictionary_accesses.each_with_index do |dictionary_access, i|
+        %tr
+          %td
+            =succeed '.' do
+              =i + 1 + 10 * (@page.to_i - 1)
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.information_system.name
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.name
+          %td.user_row{"data" => {"content" => ["#{params['controller']}", "#{dictionary_access.id}"]}}= dictionary_access.access_key
+          %td= link_to t('button.destroy'), dictionary_access, method: :delete, data: { confirm: t('helpers.sure') }, class:"btn btn-danger"
+= paginate @dictionary_accesses, id: "paginate"

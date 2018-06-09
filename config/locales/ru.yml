@@ -1,4 +1,11 @@
 ru:
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
   hello: "Добро пожаловать"
   devise: 
     registrations:
@@ -34,6 +41,8 @@ ru:
       role: Новая роль
       information_system: Новая информационная система
       dictionary_access: Информационная система - Доступ к словарю
+      group_right: Новая группа прав
+      permition: Новые права на конкретные действия
 #      client: Новый клиент
 #      list: Новый список
 #      order: Новый заказ
@@ -58,35 +67,22 @@ ru:
       index: Список "Информационная система - Доступ к словарю"
       edit: Редактирование "Информационная система - Доступ к словарю"
       new: Создание "Информационная система - Доступ к словарю"
-      show: Информация "Информационная система - Доступ к словарю" 
-    #  new: Создание заказа
-    #  show: Информация о выбранном заказе
-    #lists:
-    #  index: Списки 
-    #  new-button: Новый список
-    #  edit: Редактирование списка
-    #  new: Создание списка
-    #  show: Информация о выбранном списке
-      #~ 111
-    #roles:
-    #  index: Список возможных ролей пользователей
-    #  new-button: Новая роль
-    #  edit: Редактирование роли
-    #  new: Создание роли
-  #views:
-  #  pagination:
-  #    first: ⇤
-  #    last: ⇥
-  #    previous: ←
-  #    next: →
-  #    truncate: …
+      show: Информация "Информационная система - Доступ к словарю"
+    group_rights:
+      index: Список групп прав
+      edit: Редактирование групп прав
+      new: Создание группы прав
+      show: Информация о группе прав
+    permitions:
+      index: Список прав на конкретные действия
+      edit: Редактирование прав на конкретные действия
+      new: Создание прав на конкретные действия
+      show: Информация о праве на конкретные действия 
   activerecord:
     models:
       user: Пользователь
       role: Роль
       information_system: Информационная система
-      #order: Заказы
-      #product: Товары
     attributes:
       user:
         ln: Фамилия
@@ -109,45 +105,13 @@ ru:
         information_system: Информационная система
         name: Название словарей
         access_key: Ключ доступа
-      #role_user: &role_users
-      ## nested_finish
-      #  role: Роль
-      #  role_id: Роль
-      #  data: Параметры
-      ## nested_start
-      #user/role_users:
-      #  <<: *role_users
-      ## nested_finish 
-      ##~ 111
-      #product:
-      #  title: Название
-      #  short_description: Краткое описание
-      #  full_description: Полное описание
-      #  list_id_images: Список идентификаторов изображений
-      #  base_price: Базовая цена
-      #  current_price: Текущая цена
-      #  quantity_in_stock: Количество на складе
-      #  article: Артикль
-      #  minimum_quantity: Минимальное количество в 1 заказе
-      #client:
-      #  name: Ф.И.О.
-      #  phone: Контактный телефон
-      #  address: Адрес
-      #  email: Электронная почта
-      #order:
-      #  client: Информация о клиенте
-      #  order_number: Номер заказа
-      #  payment_method: Способ оплаты
-      #  delivery_method: Способ доставки
-      #  list_products: Список товаров
-      #  cost_goods: Стоимость товара на момент заказа
-      #  total_cost: Общая стоимость с доставкой
-      #  order_date: Дата заказа
-      #list: &lists
-      #  product: Товары
-      #  order: Заказы
-      #  product_id: Товары_id
-      #  order_id: Заказы_id
-      #  quantity_at_order: Количество товара
-      #
+      group_right:
+        information_system: Информационная система
+        group_name: Название группы
+        parameter: Параметр
+      permition:
+        act: Действие
+        information_system: Информационная система
+        parameter: Параметр
+
 

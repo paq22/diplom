@@ -5,39 +5,50 @@
       %ul
         - @group_right.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :information_system
-    = f.select :information_system_id,
-    options_for_select(InformationSystem.all.map{|t| ["#{t.name} " , t.id]}, f.object.information_system_id),
-    {include_blank: true}
-  .field
-    = f.label :group_name
-    = f.text_field :group_name
-  .field
-    = f.label :parameter
-    = f.text_field :parameter
+  %p
+  .lin_gor
+  %p.bottom_20
+    .row
+      .col-md-2
+      .lin_ver
+      .col-md-6
+        = f.label :information_system
+        = f.select :information_system_id, options_for_select(InformationSystem.all.map{|t| ["#{t.name} " , t.id]}, f.object.information_system_id),{include_blank: true},{class:"form-control selectpicker", data: {value: f.object.information_system_id}}
   
-  = hidden_field_tag(:form_id, :right_group_permitions)
-  .row
-    .col-md-12
-      = link_to_add_right_group_permition(f, f.object)      
-  = f.fields_for :right_group_permitions do |fn|
-    .col-md-6
-      .panel.panel-info
-        .panel-heading
-          %span.toright
-            = link_to_remove_right_group_permition(fn)
-            .clearfix
-        .panel-body
-          .field
-            = fn.label :permition
-            = fn.select :permition_id,
-            options_for_select(Permition.all.map{|t| ["#{t.act} ", t.id]}, fn.object.permition_id),
-            {include_blank: true}
-          .field
-            = fn.label :parameter
-            = fn.text_field :parameter
-
-  .actions
-    = f.submit 'Save'
+        = f.label :group_name
+        = f.text_field :group_name, class:"form-control"
+               
+        = f.label :parameter
+        = f.text_field :parameter, class:"form-control "
+          
+    %br
+    .row
+      .col-md-2
+      .col-md-6.text-center.bottom_20
+        -#.col-md-2.col-md-offset-2
+        = link_to t('button.back'), group_rights_path, class: "btn btn-danger", style: "width: 15%; margin-right: 4%"
+        -#.col-md-3
+        = link_to_add_right_group_permition(f, f.object)
+        -#.col-md-2
+        = f.submit t('button.save'), class: "btn btn-primary", style: "width: 28%; margin-left: 4%"
+        -#.col-md-3
+    %p.bottom_20
+    .row        
+      = f.fields_for :right_group_permitions do |fn|
+        .col-md-6
+          .card.border-primary.mb-3
+            .card-header
+              .col-md-4
+                %span.toright
+                  = link_to_add_right_group_permition(f, f.object)
+              .clearfix
+            .card-body
+              .row
+                .col-md-10.col-md-offset-1
+                  = fn.label :permition
+                  = fn.select :permition_id,
+                  options_for_select(Permition.all.map{|t| ["#{t.act} ", t.id]}, fn.object.permition_id),
+                  {include_blank: true}, class:"form-control "
+        
+                  = fn.label :parameter
+                  = fn.text_field :parameter, class:"form-control "

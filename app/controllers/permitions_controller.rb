@@ -4,7 +4,9 @@ class PermitionsController < ApplicationController
   # GET /permitions
   # GET /permitions.json
   def index
-    @permitions = Permition.all
+    @permitions = Permition.all.page(params[:page]).per(10)
+    @page = params[:page]
+    @page = 1 if @page.blank?
   end
 
   # GET /permitions/1

@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.page(params[:page]).per(10)
+    @users = User.search(params).page(params[:page]).per(10)
+    @page = params[:page]
+    @page = 1 if @page.blank?
   end
 
   # GET /users/1

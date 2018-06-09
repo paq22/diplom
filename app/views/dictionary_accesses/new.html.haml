@@ -1,5 +1,4 @@
-%h1 New dictionary_access
+%h1= t("headers.#{params['controller']}.#{params['action']}")
 
 = render 'form'
 
-= link_to 'Back', dictionary_accesses_path

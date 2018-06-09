@@ -18,8 +18,8 @@
     content = $(this).attr('data-content')
     content = content.replace(regexp, new_id)
     $(this).parent().parent().parent().find('#qqw').prepend(content)
-    panel = $(this).parent().parent().parent().find('.card-header').first()
-    panel.find('a.remove_role_group_right').on 'click', ->
+    panel = $(this).parent().parent().parent().find('.card-header2').first()
+    $(panel).find('a.remove_role_group_right').on 'click', ->
       window.del_role_group_right_body_f($(this))
       false    
     false
@@ -58,5 +58,5 @@ role_click = ->
   window.add_role_group_right_f()
   window.del_role_group_right_f()
   
+  
 $(document).on 'turbolinks:load', roles_ready_f
-

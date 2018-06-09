@@ -13,8 +13,8 @@ module PermitionRolesHelper
   
   def link_to_remove_permition_role(form)  
     form.hidden_field(:_destroy, class: 'remove_fields') + 
-        link_to(?#, class: 'remove_fields remove_permition_role') do 
-      ' Удалить'      
+        link_to(?#, class: 'remove_fields remove_permition_role btn btn-danger') do 
+          icon('fas', 'times')     
     end
   end
 end

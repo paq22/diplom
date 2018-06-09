@@ -6,16 +6,24 @@
         - @permition.errors.full_messages.each do |message|
           %li= message
 
-  .field
-    = f.label :act
-    = f.text_field :act
-  .field
-    = f.label :information_system
-    = f.select :information_system_id,
-    options_for_select(InformationSystem.all.map{|t| ["#{t.name} " , t.id]}, f.object.information_system_id),
-    {include_blank: true} 
-  .field
-    = f.label :parameter
-    = f.text_field :parameter
-  .actions
-    = f.submit 'Save'
+
+  %p
+  .lin_gor
+  %p.bottom_20
+    .row
+      .col-md-2
+      .lin_ver
+      .col-md-6
+        = f.label :act
+        = f.text_field :act, class:"form-control"
+        = f.label :information_system
+        = f.select :information_system_id, options_for_select(InformationSystem.all.map{|t| ["#{t.name} " , t.id]}, f.object.information_system_id),{include_blank: true},{class:"form-control selectpicker", data: {value: f.object.information_system_id}}
+        = f.label :parameter
+        = f.text_field :parameter, class:"form-control "
+    %br
+      .row
+        .col-md-12
+          .col-md-2.col-md-offset-2
+            = link_to t('button.back'), permitions_path, class: "btn btn-danger"
+          .col-md-2
+            = f.submit t('button.save'), class: "btn btn-primary"

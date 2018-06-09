@@ -30,8 +30,28 @@
         %tr
           %th= t('activerecord.attributes.user.sex')
           %td= @user.sex
-        
+    .col-md-2
+      = link_to t('button.edit'), edit_user_path(@user), class: "btn btn-primary"
+      %p.bottom_20
+      = link_to t('button.back'), users_path, class: "btn btn-danger"
+%p.bottom_10
 .row
-  .col-md-6.col-md-offset-2
-    = link_to t('button.edit'), edit_user_path(@user), class: "btn btn-primary"
-    = link_to t('button.back'), users_path, class: "btn btn-danger"
+  .col-md-3
+    .card.border-dark.mb-3{:style => "max-width: 25rem;"}
+      .card-header.fio
+        Роли
+      .card-body
+        %p.card-text
+          %ul
+            - @user.role_users.all.each do |r|
+              %li= link_to (r.role.name), r
+  .col-md-3
+    .card.border-dark.mb-3{:style => "max-width: 25rem;"}
+      .card-header.fio
+        Информационные системы
+      .card-body
+        %p.card-text
+          %ul
+            - @user.role_users.all.each do |r|
+              %li= link_to (r.information_system.name), r
+

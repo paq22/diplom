@@ -4,7 +4,10 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.all
+
+    @roles = Role.all.page(params[:page]).per(10)
+    @page = params[:page]
+    @page = 1 if @page.blank?
   end
 
   # GET /roles/1

@@ -5,22 +5,28 @@
       %ul
         - @information_system.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :link
-    = f.text_field :link
-  .field
-    = f.label :access_key
-    = f.text_field :access_key
+  .lin_gor
+  %p
+    .row
+      .col-md-2
+      .lin_ver
+      .col-md-6  
+        = f.label :name
+        = f.text_field :name, class:"form-control "
+        = f.label :link
+        = f.text_field :link, class:"form-control "
+        = f.label :access_key
+        = f.text_field :access_key, class:"form-control "
 
   = hidden_field_tag(:form_id, :permitions)
+  %br
   .row
     .col-md-12
+      .col-md-1.col-md-offset-2
+        = link_to t('button.back'), information_systems_path, class: "btn btn-danger"
       = link_to_add_permition(f, f.object)
       = link_to_add_dictionary_access(f, f.object)
+      = f.submit t('button.save'), class: "btn btn-primary" 
   .row
     .col-md-6#qq2
       = f.fields_for :permitions do |fn|
@@ -60,6 +66,3 @@
                 = f.label :access_key
                 = f.text_field :access_key
 
-
-  .actions
-    = f.submit 'Save'

@@ -6,7 +6,7 @@
         - @role.errors.full_messages.each do |message|
           %li= message
   .lin_gor
-  %p
+  %p.bottom_20
     .row
       .col-md-2
       .lin_ver
@@ -21,11 +21,15 @@
         = f.text_field :description, class:"form-control "
   
   -#= hidden_field_tag(:form_id, :role_group_rights)
+  %br
   .row
     .col-md-12
+      .col-md-1.col-md-offset-2
+        = link_to t('button.back'), roles_path, class: "btn btn-danger"
       = link_to_add_permition_role(f, f.object)
       = link_to_add_role_group_right(f, f.object)
-   
+      = f.submit t('button.save'), class: "btn btn-primary" 
+  %p.bottom_20
   .row
     .col-md-6#qq1
       = f.fields_for :role_group_rights do |fn|
@@ -64,5 +68,4 @@
               .field
                 = fn.label :parameter
                 = fn.text_field :parameter
-  .actions
-    = f.submit t('button.save')
+

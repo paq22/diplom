@@ -13,8 +13,8 @@ module RightGroupPermitionsHelper
   
   def link_to_remove_right_group_permition(form)  
     form.hidden_field(:_destroy, class: 'remove_fields') + 
-        link_to(?#, class: 'remove_fields remove_right_group_permition') do 
-      ' Удалить'      
+        link_to(?#, class: 'remove_fields remove_right_group_permition btn btn-danger') do 
+          icon('fas', 'times')     
     end
   end
 end

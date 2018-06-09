@@ -10,6 +10,9 @@ class GroupRightsController < ApplicationController
     else
       @group_rights = GroupRight.all
     end
+    @group_rights = GroupRight.all.page(params[:page]).per(10)
+    @page = params[:page]
+    @page = 1 if @page.blank?
   end
 
   # GET /group_rights/1

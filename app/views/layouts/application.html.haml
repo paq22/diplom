@@ -10,42 +10,49 @@
     = csrf_meta_tags
   
   %body
-    %nav.topbar
-      %ul
-        %li
-          %img{:src => "/images/logo4.png", :width=>"250",:height=>"42"}
-        %li.right
-          = link_to "Авторизация",admin_session_path, class:"a"
-        %li.btn
-          %a
-            %span V
-    %nav.sidebar
-      = link_to "На главную", welcome_index_path, class:"active"
-      = link_to "(1) Пользователи", users_path
-      = link_to "(2) Роли", roles_path
-      = link_to "(3) Информационная система", information_systems_path
-      = link_to "(4) Информационная система - Доступ к словарю", dictionary_accesses_path
-      = link_to "(7) Группы прав", group_rights_path
-      = link_to "(8) Права на конкретные действия", permitions_path
+    - if @layout == :common
+      %nav.topbar
+        %ul
+          %li
+            %img{:src => "/images/logo4.png", :width=>"250",:height=>"42", :border => "0"}
+          %li.right
+            = link_to "Выход",admin_session_path, class:"a"
+          %li.btn
+            %a
+              %span V
+      %nav.sidebar
+        = link_to "На главную", welcome_index_path, class:"active"
+        = link_to "Пользователи", users_path
+        = link_to "Роли", roles_path
+        = link_to "Информационная система", information_systems_path
+        = link_to "Информационная система - Доступ к словарю", dictionary_accesses_path
+        = link_to "Группы прав", group_rights_path
+        = link_to "Права на конкретные действия", permitions_path
+        = link_to "Импорт данных из json"
+        
+  
+  
+        .sidebar-dropdown
+          %a.sidebar-dropdown-head{"data-target" => "#sidebar-dropdown-1"}
+          #sidebar-dropdown-1.sidebar-dropdown-content.hidden
+            = link_to "(6) Роль - Пользователь", role_users_path, class:"shadow"
+            = link_to "(9) Роль - Группа прав", role_group_rights_path, class:"shadow"
+            = link_to "(10) Права групп прав", right_group_permitions_path, class:"shadow"
+            = link_to "(11) Право - Роль", permition_roles_path, class:"shadow"
+            .sidebar-dropdown
+              %a.sidebar-dropdown-head.active{"data-target" => "#sidebar-dropdown-2"}
+                Активный выпадающий список
+              #sidebar-dropdown-2.sidebar-dropdown-content.hidden
+                %a Объект 1
+                %a Объект 2
+                %a Объект 3
+  
+      .content
+        %p=yield
+    - else
+      .content
+        %p=notice
+        %p=yield
 
-
-      .sidebar-dropdown
-        %a.sidebar-dropdown-head{"data-target" => "#sidebar-dropdown-1"}
-          "УДАЛЕНО"
-        #sidebar-dropdown-1.sidebar-dropdown-content.hidden
-          = link_to "(6) Роль - Пользователь", role_users_path, class:"shadow"
-          = link_to "(9) Роль - Группа прав", role_group_rights_path, class:"shadow"
-          = link_to "(10) Права групп прав", right_group_permitions_path, class:"shadow"
-          = link_to "(11) Право - Роль", permition_roles_path, class:"shadow"
-          .sidebar-dropdown
-            %a.sidebar-dropdown-head.active{"data-target" => "#sidebar-dropdown-2"}
-              Активный выпадающий список
-            #sidebar-dropdown-2.sidebar-dropdown-content.hidden
-              %a Объект 1
-              %a Объект 2
-              %a Объект 3
-
-    .content
-      %p=yield
 
 

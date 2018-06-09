@@ -30,6 +30,7 @@
     link.parent().find("input[type=hidden].remove_fields").first().val("1")
     link.parent().parent().parent().parent().parent().hide()
   false
+false
 @del_dictionary_access_f = ->
   $('a.remove_dictionary_access').on 'click', ->
     window.del_dictionary_access_body_f($(this))
@@ -42,7 +43,7 @@
     content = $(this).attr('data-content')
     content = content.replace(regexp, new_id)
     $(this).parent().parent().parent().find('#qqe').prepend(content)
-    panel = $(this).parent().parent().parent().find('.card-header').first()
+    panel = $(this).parent().parent().parent().find('.card-header2').first()
     panel.find('a.remove_dictionary_access').on 'click', ->
       window.del_dictionary_access_body_f($(this))
       false    

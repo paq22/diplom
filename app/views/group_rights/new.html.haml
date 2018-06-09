@@ -1,5 +1,3 @@
-%h1 New group_right
+%h1= t("headers.#{params['controller']}.#{params['action']}")
 
 = render 'form'
-
-= link_to 'Back', group_rights_path

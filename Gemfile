@@ -58,6 +58,7 @@ gem 'bootstrap-select-rails'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'bootstrap3-datetimepicker-rails'
+gem 'font-awesome-sass', '~> 5.0.9'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
